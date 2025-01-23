@@ -18,11 +18,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class AppComponent {
   public title: string = 'angular-currency-converter';
-  public multiplyControl: FormControl<number> = new FormControl();
 
   public count: WritableSignal<number> = signal(0);
+  public secondCount: WritableSignal<number> = signal(0);
   public countMultiplied: Signal<number> = computed(
-    () => this.count() * this.multiplyControl?.value
+    () => this.count() * this.secondCount()
   );
 
   public httpInfo: Signal<any>;
@@ -37,8 +37,12 @@ export class AppComponent {
     this.count.set(this.count() + 1);
   }
 
+  public incrementSecondCount(): void {
+    this.secondCount.set(this.secondCount() + 1);
+  }
+
   public reset(): void {
     this.count.set(0);
-    this.multiplyControl.reset();
+    this.secondCount.set(0);
   }
 }

@@ -1,6 +1,8 @@
-<h1>Hello original {{ count() }} multiplied {{ countMultiplied() }}</h1>
+<h1>
+  Hello original {{ count() }} and {{ secondCount() }} multiplied
+  {{ countMultiplied() }}
+</h1>
 
-<input type="number" [formControl]="multiplyControl" />
-
-<button (click)="increment()">increment</button>
+<button (click)="increment()">increment count</button>
+<button (click)="incrementSecondCount()">increment second count</button>
 <button (click)="reset()">reset</button>
