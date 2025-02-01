@@ -6,3 +6,11 @@
 <button (click)="increment()">increment count</button>
 <button (click)="incrementSecondCount()">increment second count</button>
 <button (click)="reset()">reset</button>
+
+@if(list()) {
+<ul>
+  @for(item of list(); track: item) {
+  <li>{{ item }}</li>
+  }
+</ul>
+}

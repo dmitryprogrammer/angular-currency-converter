@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import {
   Component,
@@ -12,7 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -24,6 +25,12 @@ export class AppComponent {
   public countMultiplied: Signal<number> = computed(
     () => this.count() * this.secondCount()
   );
+  list = signal(['Hello', 'World']);
+
+  object = signal({
+    id: 1,
+    title: 'Angular For Beginners',
+  });
 
   public httpInfo: Signal<any>;
 
